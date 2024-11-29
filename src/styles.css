@@ -1,0 +1,10 @@
+button{
+  background-color: lightgray;
+  height: 30px;
+  width: 100%;
+}
+
+.calculator-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
