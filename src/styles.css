@@ -8,3 +8,13 @@ button{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+
+.result-row{
+  grid-column: span 4;
+  border-style: solid;
+  height: 30px
+}
+
+.zero-button{
+  grid-column: span 2;
+}
