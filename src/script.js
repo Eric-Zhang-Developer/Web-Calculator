@@ -23,8 +23,11 @@ operationButtons.forEach(button => {
 specialButtons.forEach(button => {
     button.addEventListener('click', function(){
         console.log('Special button is: ' + this.dataset.value);
+        if (this.dataset.value == 'clear'){ // Clears all elements in array
+            calculationArray = [];
+            return;
+        }
         calculationArray.push(this.dataset.value);
-        console.log('Calculation Array: ' + calculationArray);
     });
 });
 
