@@ -9,7 +9,14 @@ let calculationArray = []
 numberButtons.forEach(button => {
     button.addEventListener('click', function(){
         console.log(this.dataset.value + ' was clicked!');
-        calculationArray.push(this.dataset.value);
+        // Tack on digit to to last element if it also was a digit
+        if (calculationArray && !isNaN(calculationArray[calculationArray.length-1])){
+            calculationArray[calculationArray.length-1] += this.dataset.value;
+        }
+        else{
+            calculationArray.push(this.dataset.value);
+        }
+        
     });
 });
 
