@@ -22,8 +22,14 @@ numberButtons.forEach(button => {
 
 operationButtons.forEach(button => {
     button.addEventListener('click', function(){
-        console.log('Operation is: ' + this.dataset.value);
-        calculationArray.push(this.dataset.value);
+        // Input verification, only if last input is a number do we append the operation
+        if (calculationArray && !isNaN(calculationArray[calculationArray.length-1])){
+            calculationArray.push(this.dataset.value);
+        }
+        else{
+            // Placeholder for sounds 
+        }
+        
     });
 });
 
