@@ -1,21 +1,43 @@
+:root{
+  --primary-color: lightgray;
+  --secondary-color: rgb(107, 198, 228);
+  --tertiary-color: rgb(159, 159, 159);
+}
+
+
+
 button{
-  background-color: lightgray;
-  height: 30px;
+  background-color: var(--primary-color);
+  height: 50px;
+  font-size: 20px;
   width: 100%;
+  border-style: none;
+  
+}
+/* Styling for button types */
+
+.operation{ 
+  background-color: var(--secondary-color);
+}
+
+.special{
+  background-color: var(--tertiary-color);
 }
 
 .calculator-grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2px;
+
 }
 
 .result-row{
   grid-column: span 4;
   border-style: solid;
-  height: 30px;
+  border-width: 1px;
+  height: 50px;
   display: flex;
   align-items: center;
-
 }
 
 .zero-button{
@@ -24,4 +46,6 @@ button{
 
 .result-box{
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-left: 20px;
 }
