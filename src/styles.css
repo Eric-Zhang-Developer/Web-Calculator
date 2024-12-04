@@ -12,9 +12,16 @@ button{
 .result-row{
   grid-column: span 4;
   border-style: solid;
-  height: 30px
+  height: 30px;
+  display: flex;
+  align-items: center;
+
 }
 
 .zero-button{
   grid-column: span 2;
+}
+
+.result-box{
+  font-family: Arial, Helvetica, sans-serif;
 }
