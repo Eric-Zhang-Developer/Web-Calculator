@@ -27,7 +27,7 @@ operationButtons.forEach(button => {
             calculationArray.push(this.dataset.value);
         }
         else{
-            // Placeholder for sounds 
+            // Placeholder for sounds this will play a choice of error meme sound 
         }
         
     });
@@ -40,9 +40,17 @@ specialButtons.forEach(button => {
             calculationArray = [];
             return;
         }
-        else if(this.dataset.value == 'calculate'){
+        else if(this.dataset.value == 'calculate'){ // Calculate result
             let result = calculateResult(calculationArray);
             calculationArray = [result];
+            return;
+        }
+        else if(this.dataset.value == 'percent'){
+            // To-Do - Implement percent function
+            return;
+        }
+        else if(this.dataset.value == 'sign'){ // Changes sign of last number
+            // To-Do - Implement sign function
             return;
         }
         calculationArray.push(this.dataset.value);
