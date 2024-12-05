@@ -11,11 +11,10 @@ numberButtons.forEach(button => {
         console.log(this.dataset.value + ' was clicked!');
         // Tack on digit to to last element if it also was a digit
         if (calculationArray && (!isNaN(calculationArray[calculationArray.length-1]) || calculationArray[calculationArray.length-1] == '.')){
-            console.log(1)
+            console.log(this.dataset.value + " was appended to last number");
             calculationArray[calculationArray.length-1] += this.dataset.value;
         }
         else{
-            console.log(1)
             calculationArray.push(this.dataset.value);
         }
         
@@ -61,7 +60,19 @@ specialButtons.forEach(button => {
             return;
         }
         else if(this.dataset.value == 'decimal'){ // Adds decimal point
-            calculationArray.push('.');
+            if (calculationArray && 
+                isLastInputNumber(calculationArray) && 
+                !calculationArray[calculationArray.length-1].includes('.'))
+            {
+                calculationArray[calculationArray.length-1] += '.';
+            }
+            else if (calculationArray && calculationArray[calculationArray.length-1].includes('.')){
+                console.log('Error: Last number contains decimal');
+                // Error, last number contains a decimal
+            }
+            else{
+                calculationArray.push('0.');
+            }
             return;
         }
     });
@@ -85,19 +96,19 @@ function calculateResult(inputArray){
     for (let i = 0; i < calculationArray.length; i++){
         // Multiplication, error checks for index not needed, array already valid.
         if (calculationArray[i] == "×"){ 
-            firstNumber = newCalculationArray.pop();
-            secondNumber = calculationArray[i+1];
-            newCalculationArray.push(firstNumber * secondNumber);
+            firstNumber = Number(newCalculationArray.pop());
+            secondNumber = Number(calculationArray[i+1]);
+            newCalculationArray.push((firstNumber * secondNumber).toString());
             i++;
         }
         // Division 
         else if (calculationArray[i] == "÷"){
-            firstNumber = newCalculationArray.pop();
-            secondNumber = calculationArray[i+1];
+            firstNumber = Number(newCalculationArray.pop());
+            secondNumber = Number(calculationArray[i+1]);
             if (secondNumber == "0"){ // This is bad code, does not work on 0.0
                 // To do: Divide by 0 error handling
             }
-            newCalculationArray.push(firstNumber / secondNumber);
+            newCalculationArray.push((firstNumber / secondNumber).toString());
             i++;
         }
         else{
@@ -111,15 +122,15 @@ function calculateResult(inputArray){
     for (let i = 0; i < calculationArray.length; i++){
         // Multiplication, error checks for index not needed, array already valid.
         if (calculationArray[i] == "+"){ 
-            firstNumber = newCalculationArray.pop();
-            secondNumber = calculationArray[i+1];
-            newCalculationArray.push(firstNumber + secondNumber);
+            firstNumber = Number(newCalculationArray.pop());
+            secondNumber = Number(calculationArray[i+1]);
+            newCalculationArray.push((firstNumber + secondNumber).toString());
             i++;
         }
         else if (calculationArray[i] == "-"){
-            firstNumber = newCalculationArray.pop();
-            secondNumber = calculationArray[i+1];
-            newCalculationArray.push(firstNumber - secondNumber);
+            firstNumber = Number(newCalculationArray.pop());
+            secondNumber = Number(calculationArray[i+1]);
+            newCalculationArray.push((firstNumber - secondNumber).toString());
             i++;
         }
         else{
