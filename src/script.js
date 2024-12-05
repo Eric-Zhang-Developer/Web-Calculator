@@ -45,7 +45,7 @@ specialButtons.forEach(button => {
             calculationArray = result;
             return;
         }
-        else if(this.dataset.value == 'percent'){
+        else if(this.dataset.value == 'percent'){ // Percent Function
             // To-Do - Implement percent function
             return;
         }
@@ -53,7 +53,10 @@ specialButtons.forEach(button => {
             // To-Do - Implement sign function
             return;
         }
-        calculationArray.push(this.dataset.value);
+        else if(this.dataset.value == 'decimal'){ // Adds decimal point
+            // To-Do - Implement decimal function
+            return;
+        }
     });
 });
 
