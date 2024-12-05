@@ -10,11 +10,13 @@ numberButtons.forEach(button => {
     button.addEventListener('click', function(){
         console.log(this.dataset.value + ' was clicked!');
         // Tack on digit to to last element if it also was a digit
-        if (calculationArray && !isNaN(calculationArray[calculationArray.length-1])){
+        if (calculationArray && (!isNaN(calculationArray[calculationArray.length-1]) || calculationArray[calculationArray.length-1] == '.')){
+            console.log(1)
             calculationArray[calculationArray.length-1] += this.dataset.value;
         }
         else{
-            calculationArray.push(Number(this.dataset.value));
+            console.log(1)
+            calculationArray.push(this.dataset.value);
         }
         
     });
@@ -23,7 +25,7 @@ numberButtons.forEach(button => {
 operationButtons.forEach(button => {
     button.addEventListener('click', function(){
         // Input verification, only if last input is a number do we append the operation
-        if (calculationArray && !isNaN(calculationArray[calculationArray.length-1])){
+        if (isLastInputNumber(calculationArray)){
             calculationArray.push(this.dataset.value);
         }
         else{
@@ -50,7 +52,7 @@ specialButtons.forEach(button => {
             return;
         }
         else if(this.dataset.value == 'sign'){ // Changes sign of last number
-            if (calculationArray && !isNaN(calculationArray[calculationArray.length-1])){ 
+            if (isLastInputNumber(calculationArray)){ 
                 calculationArray[calculationArray.length-1] *= -1
             }
             else{
@@ -59,11 +61,12 @@ specialButtons.forEach(button => {
             return;
         }
         else if(this.dataset.value == 'decimal'){ // Adds decimal point
-            // To-Do - Implement decimal function
+            calculationArray.push('.');
             return;
         }
     });
 });
+
 
 // Here is where the math happens 
 // To do: There is a major error in my code in which it is string - operation - string math
@@ -71,7 +74,7 @@ function calculateResult(inputArray){
     // This code will follow order of operations, we will first loop and look for and calculate * and /
     // Then look for + and -, calculate
     // Last input is an operation which makes calculation invalid, return an the array and do not calculate
-    if (calculationArray && isNaN(calculationArray[calculationArray.length-1])){ 
+    if (!isLastInputNumber(calculationArray)){ 
         // Play an Error sound 
         console.log("Error: Last input is an operation");
         return calculationArray;
@@ -128,6 +131,15 @@ function calculateResult(inputArray){
     return calculationArray;
 }
 
+// Check if last element of array is a number
+function isLastInputNumber(array){
+    if (array && !isNaN(array[array.length-1])){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 // Display Array
 allButtons.forEach(button => {
@@ -136,6 +148,7 @@ allButtons.forEach(button => {
         console.log('Calculation Array: ' + calculationArray.join(" "));
     });
 });
+
 
 
 
