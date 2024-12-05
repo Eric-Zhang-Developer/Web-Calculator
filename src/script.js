@@ -40,9 +40,30 @@ specialButtons.forEach(button => {
             calculationArray = [];
             return;
         }
+        else if(this.dataset.value == 'calculate'){
+            let result = calculateResult(calculationArray);
+            calculationArray = [result];
+            return;
+        }
         calculationArray.push(this.dataset.value);
     });
 });
+
+// Here is where the math happens 
+function calculateResult(inputArray){
+    // This code will follow order of operations, we will first loop and look for and calculate * and /
+    // Then look for + and -, calculate
+    newCalculationArray = [];
+    for (let i = 0; i < calculationArray.length; i++){
+        if (calculationArray[i] == "X"){
+            // To-Do: implement multiplication
+        }
+        if (calculationArray[i] == "/"){
+            // To-do: implement divison
+        }
+    }
+    return 0;
+}
 
 allButtons.forEach(button => {
     button.addEventListener('click', function(){
