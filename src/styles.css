@@ -1,10 +1,11 @@
 :root{
-  --primary-color: lightgray;
+  --primary-color: rgb(211,211, 211);
   --secondary-color: rgb(107, 198, 228);
   --tertiary-color: rgb(159, 159, 159);
 }
 
 
+/* Styling for buttons */
 
 button{
   background-color: var(--primary-color);
@@ -12,17 +13,30 @@ button{
   font-size: 20px;
   width: 100%;
   border-style: none;
-  
 }
-/* Styling for button types */
 
+button:active{
+  background-color: rgb(191, 191, 191);
+}
+
+/* Styling for specific button types */
 .operation{ 
   background-color: var(--secondary-color);
+}
+
+.operation:active{
+  background-color: rgb(87, 178, 208);
 }
 
 .special{
   background-color: var(--tertiary-color);
 }
+
+.special:active {
+  background-color: rgb(139, 139, 139); 
+}
+
+
 
 .calculator-grid{
   display: grid;
