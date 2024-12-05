@@ -58,10 +58,10 @@ specialButtons.forEach(button => {
 });
 
 // Here is where the math happens 
+// To do: There is a major error in my code in which it is string - operation - string math
 function calculateResult(inputArray){
     // This code will follow order of operations, we will first loop and look for and calculate * and /
     // Then look for + and -, calculate
-
     // Last input is an operation which makes calculation invalid, return an the array and do not calculate
     if (calculationArray && isNaN(calculationArray[calculationArray.length-1])){ 
         // Play an Error sound 
@@ -69,18 +69,59 @@ function calculateResult(inputArray){
         return calculationArray;
     }
 
-    newCalculationArray = [];
+    // Multiplication and Division 
+    let newCalculationArray = [];
     for (let i = 0; i < calculationArray.length; i++){
-        if (calculationArray[i] == "×"){
-            // To-Do: implement multiplication
+        // Multiplication, error checks for index not needed, array already valid.
+        if (calculationArray[i] == "×"){ 
+            firstNumber = newCalculationArray.pop();
+            secondNumber = calculationArray[i+1];
+            newCalculationArray.push(firstNumber * secondNumber);
+            i++;
         }
-        if (calculationArray[i] == "÷"){
-            // To-do: implement divison
+        // Division 
+        else if (calculationArray[i] == "÷"){
+            firstNumber = newCalculationArray.pop();
+            secondNumber = calculationArray[i+1];
+            if (secondNumber == "0"){ // This is bad code, does not work on 0.0
+                // To do: Divide by 0 error handling
+            }
+            newCalculationArray.push(firstNumber / secondNumber);
+            i++;
+        }
+        else{
+            newCalculationArray.push(calculationArray[i]);
         }
     }
-    return [0];
+
+    // Done multiplying and dividing, onto addition and subtraction
+    calculationArray = newCalculationArray;
+    newCalculationArray = [];
+    for (let i = 0; i < calculationArray.length; i++){
+        // Multiplication, error checks for index not needed, array already valid.
+        if (calculationArray[i] == "+"){ 
+            firstNumber = newCalculationArray.pop();
+            secondNumber = calculationArray[i+1];
+            newCalculationArray.push(firstNumber + secondNumber);
+            i++;
+        }
+        else if (calculationArray[i] == "-"){
+            firstNumber = newCalculationArray.pop();
+            secondNumber = calculationArray[i+1];
+            newCalculationArray.push(firstNumber - secondNumber);
+            i++;
+        }
+        else{
+            newCalculationArray.push(calculationArray[i]);
+        }
+    }
+    // Return Result, should be 1 number
+    calculationArray = newCalculationArray;
+    return calculationArray;
 }
 
+
+// Display Array
 allButtons.forEach(button => {
     button.addEventListener('click', function(){
         resultElement.innerText = calculationArray.join(" ");
