@@ -50,7 +50,12 @@ specialButtons.forEach(button => {
             return;
         }
         else if(this.dataset.value == 'sign'){ // Changes sign of last number
-            // To-Do - Implement sign function
+            if (calculationArray && !isNaN(calculationArray[calculationArray.length-1])){ 
+                calculationArray[calculationArray.length-1] *= -1
+            }
+            else{
+                // Play an error Noise
+            }
             return;
         }
         else if(this.dataset.value == 'decimal'){ // Adds decimal point
