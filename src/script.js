@@ -55,10 +55,10 @@ function calculateResult(inputArray){
     // Then look for + and -, calculate
     newCalculationArray = [];
     for (let i = 0; i < calculationArray.length; i++){
-        if (calculationArray[i] == "X"){
+        if (calculationArray[i] == "×"){
             // To-Do: implement multiplication
         }
-        if (calculationArray[i] == "/"){
+        if (calculationArray[i] == "÷"){
             // To-do: implement divison
         }
     }
