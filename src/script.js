@@ -14,7 +14,7 @@ numberButtons.forEach(button => {
             calculationArray[calculationArray.length-1] += this.dataset.value;
         }
         else{
-            calculationArray.push(this.dataset.value);
+            calculationArray.push(Number(this.dataset.value));
         }
         
     });
