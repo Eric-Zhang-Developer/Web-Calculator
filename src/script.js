@@ -66,7 +66,7 @@ specialButtons.forEach(button => {
             {
                 calculationArray[calculationArray.length-1] += '.';
             }
-            else if (calculationArray && calculationArray[calculationArray.length-1].includes('.')){
+            else if (calculationArray.length > 0 && calculationArray[calculationArray.length-1].includes('.')){
                 console.log('Error: Last number contains decimal');
                 // Error, last number contains a decimal
             }
