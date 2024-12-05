@@ -42,7 +42,7 @@ specialButtons.forEach(button => {
         }
         else if(this.dataset.value == 'calculate'){ // Calculate result
             let result = calculateResult(calculationArray);
-            calculationArray = [result];
+            calculationArray = result;
             return;
         }
         else if(this.dataset.value == 'percent'){
@@ -61,6 +61,14 @@ specialButtons.forEach(button => {
 function calculateResult(inputArray){
     // This code will follow order of operations, we will first loop and look for and calculate * and /
     // Then look for + and -, calculate
+
+    // Last input is an operation which makes calculation invalid, return an the array and do not calculate
+    if (calculationArray && isNaN(calculationArray[calculationArray.length-1])){ 
+        // Play an Error sound 
+        console.log("Error: Last input is an operation");
+        return calculationArray;
+    }
+
     newCalculationArray = [];
     for (let i = 0; i < calculationArray.length; i++){
         if (calculationArray[i] == "×"){
@@ -70,7 +78,7 @@ function calculateResult(inputArray){
             // To-do: implement divison
         }
     }
-    return 0;
+    return [0];
 }
 
 allButtons.forEach(button => {
