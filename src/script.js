@@ -167,6 +167,7 @@ function isLastInputNumber(array){
     }
 }
 
+// Get the place value of the last digit as a int
 function getDecimalPlaces(num) {
     const str = num.toString();
     const decimalIndex = str.indexOf('.');
