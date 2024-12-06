@@ -96,15 +96,15 @@ function calculateResult(inputArray){
     for (let i = 0; i < calculationArray.length; i++){
         // Multiplication, error checks for index not needed, array already valid.
         if (calculationArray[i] == "×"){ 
-            firstNumber = Number(newCalculationArray.pop());
-            secondNumber = Number(calculationArray[i+1]);
+            const firstNumber = Number(newCalculationArray.pop());
+            const secondNumber = Number(calculationArray[i+1]);
             newCalculationArray.push((firstNumber * secondNumber).toString());
             i++;
         }
         // Division 
         else if (calculationArray[i] == "÷"){
-            firstNumber = Number(newCalculationArray.pop());
-            secondNumber = Number(calculationArray[i+1]);
+            const firstNumber = Number(newCalculationArray.pop());
+            const secondNumber = Number(calculationArray[i+1]);
             if (secondNumber == "0"){ // This is bad code, does not work on 0.0
                 // To do: Divide by 0 error handling
             }
@@ -122,15 +122,30 @@ function calculateResult(inputArray){
     for (let i = 0; i < calculationArray.length; i++){
         // Multiplication, error checks for index not needed, array already valid.
         if (calculationArray[i] == "+"){ 
-            firstNumber = Number(newCalculationArray.pop());
-            secondNumber = Number(calculationArray[i+1]);
-            newCalculationArray.push((firstNumber + secondNumber).toString());
+            let firstNumber = Number(newCalculationArray.pop());
+            let secondNumber = Number(calculationArray[i+1]);
+
+            // Need to multiply by each number 10^n where n is the max number of decimal places
+            // Add, then divide again by 10^n
+            let maxDecimalPlace = Math.max(getDecimalPlaces(firstNumber), getDecimalPlaces(secondNumber));
+            firstNumber *= (10 ** maxDecimalPlace);
+            secondNumber *= (10 ** maxDecimalPlace);
+            let result = firstNumber + secondNumber;
+            result /= (10 ** maxDecimalPlace);
+            newCalculationArray.push((result).toString());
             i++;
         }
         else if (calculationArray[i] == "-"){
-            firstNumber = Number(newCalculationArray.pop());
-            secondNumber = Number(calculationArray[i+1]);
-            newCalculationArray.push((firstNumber - secondNumber).toString());
+            let firstNumber = Number(newCalculationArray.pop());
+            let secondNumber = Number(calculationArray[i+1]);
+            
+            // Again complex exponent operation needed 
+            let maxDecimalPlace = Math.max(getDecimalPlaces(firstNumber), getDecimalPlaces(secondNumber));
+            firstNumber *= (10 ** maxDecimalPlace);
+            secondNumber *= (10 ** maxDecimalPlace);
+            let result = firstNumber - secondNumber;
+            result /= (10 ** maxDecimalPlace);
+            newCalculationArray.push((result).toString());
             i++;
         }
         else{
@@ -149,6 +164,17 @@ function isLastInputNumber(array){
     }
     else{
         return false;
+    }
+}
+
+function getDecimalPlaces(num) {
+    const str = num.toString();
+    const decimalIndex = str.indexOf('.');
+    if (decimalIndex === -1){
+        return 0;
+    }
+    else{
+        return  str.length - decimalIndex - 1;
     }
 }
 
