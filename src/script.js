@@ -46,13 +46,14 @@ specialButtons.forEach(button => {
             calculationArray = result;
             return;
         }
-        else if(this.dataset.value == 'percent'){ // Percent Function
-            // To-Do - Implement percent function
+        else if(this.dataset.value == 'percent' && isLastInputNumber(calculationArray)){ // Percent Function
+            // To-Do: Also need to make sure last input not 0
+            calculationArray[calculationArray.length-1] /= 100;
             return;
         }
         else if(this.dataset.value == 'sign'){ // Changes sign of last number
             if (isLastInputNumber(calculationArray)){ 
-                calculationArray[calculationArray.length-1] *= -1
+                calculationArray[calculationArray.length-1] *= -1;
             }
             else{
                 // Play an error Noise
