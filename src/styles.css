@@ -7,6 +7,8 @@
 
 /* Styling for buttons */
 
+
+
 button{
   background-color: var(--primary-color);
   height: 50px;
@@ -14,6 +16,8 @@ button{
   width: 100%;
   border-style: none;
 }
+
+
 
 button:active{
   background-color: rgb(191, 191, 191);
@@ -62,4 +66,25 @@ button:active{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   margin-left: 20px;
+}
+
+/* Mobile Formatting */
+@media (max-width: 480px) {
+  button {
+      height: 80px;
+      font-size: 24px;
+  }
+  
+  .result-row {
+      height: 80px;
+  }
+  
+  .result-box {
+      font-size: 28px;
+  }
+  
+  .calculator-grid {
+      gap: 4px;
+      padding: 8px;
+  }
 }
