@@ -6,11 +6,30 @@ const resultElement = document.getElementById("result");
 
 const errorSounds = [
     'sounds/error/among-us-role-reveal-sound.mp3',
+    'sounds/error/auughh.mp3',
+    'sounds/error/bruh.mp3',
+    'sounds/error/gta-v-wasted.mp3',
+    'sounds/error/minecraft-hurt.mp3',
+    'sounds/error/oh-hell-nah.mp3',
     'sounds/error/sponge-stank-noise.mp3',
-    'sounds/error/spongebob-fail.mp3'
+    'sounds/error/spongebob-fail.mp3',
+    'sounds/error/toms-screams.mp3',
+    'sounds/error/untitled_bmEjZi2.mp3',
+    'sounds/error/what-the-hell-meme-sound-effect.mp3',
+    'sounds/error/windows-xp.mp3'
 ]
 const numberOperationSounds = [
-    'sounds/number-operation/bonk.mp3'
+    'sounds/number-operation/bonk.mp3',
+    'sounds/number-operation/discord-notification.mp3',
+    'sounds/number-operation/he-he-he-ha.mp3',
+    'sounds/number-operation/hitmarker.mp3',
+    'sounds/number-operation/metal-pipe-clang.mp3',
+    'sounds/number-operation/nice.mp3',
+    'sounds/number-operation/rizz-sound-effect.mp3',
+    'sounds/number-operation/roblox-death-sound_1.mp3',
+    'sounds/number-operation/taco-bell-bong.mp3',
+    'sounds/number-operation/vine-boom.mp3',
+    'sounds/number-operation/voice_sans.mp3',
 ]
 
 const resultSounds = [
