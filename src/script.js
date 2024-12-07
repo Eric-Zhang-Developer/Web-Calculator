@@ -9,6 +9,23 @@ const errorSounds = [
     'sounds/error/sponge-stank-noise.mp3',
     'sounds/error/spongebob-fail.mp3'
 ]
+const numberOperationSounds = [
+    'sounds/number-operation/bonk.mp3'
+]
+
+const resultSounds = [
+    'sounds/result/Biden-SODA.mp3',
+    'sounds/result/clash-royale-hog-rider.mp3',
+    'sounds/result/deg-deg_4M6Cojn.mp3',
+    'sounds/result/hawk-tuah.mp3',
+    'sounds/result/mlg-airhorn.mp3',
+    'sounds/result/obamna.mp3',
+    'sounds/result/oh-my-god-meme.mp3',
+    'sounds/result/sad-meow-song.mp3',
+    'sounds/result/skibidi-toilet.mp3',
+    'sounds/result/we-got-him.mp3',
+    'sounds/result/yipeeee.mp3'
+]
 
 let calculationArray = []
 
@@ -23,6 +40,8 @@ numberButtons.forEach(button => {
         else{
             calculationArray.push(this.dataset.value);
         }
+        playSound(numberOperationSounds);
+
         
     });
 });
@@ -169,6 +188,7 @@ function calculateResult(inputArray){
     }
     // Return Result, should be 1 number
     calculationArray = newCalculationArray;
+    playSound(resultSounds);
     return calculationArray;
 }
 
