@@ -46,8 +46,11 @@ specialButtons.forEach(button => {
             calculationArray = result;
             return;
         }
-        else if(this.dataset.value == 'percent' && isLastInputNumber(calculationArray)){ // Percent Function
-            // To-Do: Also need to make sure last input not 0
+        // Percent Function, valid if last input is a non 0 number
+        else if(this.dataset.value == 'percent' && 
+            isLastInputNumber(calculationArray) &&
+            calculationArray[calculationArray.length-1] != 0)
+        { 
             calculationArray[calculationArray.length-1] /= 100;
             return;
         }
@@ -106,11 +109,16 @@ function calculateResult(inputArray){
         else if (calculationArray[i] == "÷"){
             const firstNumber = Number(newCalculationArray.pop());
             const secondNumber = Number(calculationArray[i+1]);
-            if (secondNumber == "0"){ // This is bad code, does not work on 0.0
-                // To do: Divide by 0 error handling
+            if (secondNumber == 0){ 
+                console.log("Cannot divide by 0");
+                newCalculationArray.push(firstNumber.toString());
+                newCalculationArray.push("÷");
+                // Error Sound 
             }
-            newCalculationArray.push((firstNumber / secondNumber).toString());
-            i++;
+            else{
+                newCalculationArray.push((firstNumber / secondNumber).toString());
+                i++;
+            }
         }
         else{
             newCalculationArray.push(calculationArray[i]);
