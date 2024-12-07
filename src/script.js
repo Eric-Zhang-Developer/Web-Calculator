@@ -4,6 +4,12 @@ const specialButtons = document.querySelectorAll('button[data-type="special"]');
 const allButtons = document.querySelectorAll('button');
 const resultElement = document.getElementById("result");
 
+const errorSounds = [
+    'sounds/error/among-us-role-reveal-sound.mp3',
+    'sounds/error/sponge-stank-noise.mp3',
+    'sounds/error/spongebob-fail.mp3'
+]
+
 let calculationArray = []
 
 numberButtons.forEach(button => {
@@ -28,7 +34,7 @@ operationButtons.forEach(button => {
             calculationArray.push(this.dataset.value);
         }
         else{
-            // Placeholder for sounds this will play a choice of error meme sound 
+            playSound(errorSounds);
         }
         
     });
@@ -186,6 +192,13 @@ function getDecimalPlaces(num) {
     else{
         return  str.length - decimalIndex - 1;
     }
+}
+
+function playSound(sounds){
+    const len = sounds.length;
+    const randomIndex = Math.floor(Math.random() * len);
+    const randomSound = new Audio(sounds[randomIndex]);
+    randomSound.play();
 }
 
 // Display Array
