@@ -70,6 +70,7 @@ operationButtons.forEach(button => {
         // Input verification, only if last input is a number do we append the operation
         if (isLastInputNumber(calculationArray)){
             calculationArray.push(this.dataset.value);
+            playSound(numberOperationSounds);
         }
         else{
             playSound(errorSounds);
@@ -103,7 +104,7 @@ specialButtons.forEach(button => {
                 calculationArray[calculationArray.length-1] *= -1;
             }
             else{
-                // Play an error Noise
+                playSound(errorSounds);
             }
             return;
         }
@@ -116,6 +117,7 @@ specialButtons.forEach(button => {
             }
             else if (calculationArray.length > 0 && calculationArray[calculationArray.length-1].includes('.')){
                 console.log('Error: Last number contains decimal');
+                playSound(errorSounds);
                 // Error, last number contains a decimal
             }
             else{
@@ -134,7 +136,7 @@ function calculateResult(inputArray){
     // Then look for + and -, calculate
     // Last input is an operation which makes calculation invalid, return an the array and do not calculate
     if (!isLastInputNumber(calculationArray)){ 
-        // Play an Error sound 
+        playSound(errorSounds);
         console.log("Error: Last input is an operation");
         return calculationArray;
     }
@@ -157,7 +159,7 @@ function calculateResult(inputArray){
                 console.log("Cannot divide by 0");
                 newCalculationArray.push(firstNumber.toString());
                 newCalculationArray.push("÷");
-                // Error Sound 
+                playSound(errorSounds);
             }
             else{
                 newCalculationArray.push((firstNumber / secondNumber).toString());
