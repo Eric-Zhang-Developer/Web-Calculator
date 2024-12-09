@@ -3,20 +3,20 @@ A web-based calculator application that combines basic arithmetic operations wit
 
  # Features
 
-Basic arithmetic operations (addition, subtraction, multiplication, division)
-Percentage calculations
-Decimal point handling
-Sign change functionality
-Clear function (AC)
-Random meme sound effects on button clicks
-Responsive design for mobile devices
-Order of operations support
-
+- Basic arithmetic operations (addition, subtraction, multiplication, division)
+- Follows order of operations
+- Percentage calculations
+- Decimal point handling
+- Sign change functionality
+- Clear function (AC)
+- Random meme sound effects on button clicks
+- Responsive design for mobile devices
+  
 # Technical Stack
 
-HTML5 for structure
-CSS3 for styling and responsive design
-Vanilla JavaScript for calculations and sound integration
+- HTML5 for structure
+- CSS3 for styling and responsive design
+- Vanilla JavaScript for calculations and sound integration
 
 # Copyright Notice
 This project includes sound effects from various sources that may be subject to copyright. These sounds are used strictly for:
