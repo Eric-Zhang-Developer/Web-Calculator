@@ -4,6 +4,7 @@ const specialButtons = document.querySelectorAll('button[data-type="special"]');
 const allButtons = document.querySelectorAll('button');
 const resultElement = document.getElementById("result");
 
+// Sounds 
 const errorSounds = [
     'sounds/error/among-us-role-reveal-sound.mp3',
     'sounds/error/auughh.mp3',
@@ -46,8 +47,10 @@ const resultSounds = [
     'sounds/result/yipeeee.mp3'
 ]
 
+// Main storage system for calculations 
 let calculationArray = []
 
+// Number Input
 numberButtons.forEach(button => {
     button.addEventListener('click', function(){
         console.log(this.dataset.value + ' was clicked!');
@@ -65,6 +68,7 @@ numberButtons.forEach(button => {
     });
 });
 
+// Operation input such as +,-,/,*
 operationButtons.forEach(button => {
     button.addEventListener('click', function(){
         // Input verification, only if last input is a number do we append the operation
@@ -79,6 +83,7 @@ operationButtons.forEach(button => {
     });
 });
 
+// Special button input handling
 specialButtons.forEach(button => {
     button.addEventListener('click', function(){
         console.log('Special button is: ' + this.dataset.value);
@@ -235,6 +240,7 @@ function getDecimalPlaces(num) {
     }
 }
 
+// Function takes random sound path from an array, uses sound path to play said sound
 function playSound(sounds){
     const len = sounds.length;
     const randomIndex = Math.floor(Math.random() * len);
