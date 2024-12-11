@@ -258,7 +258,7 @@ allButtons.forEach(button => {
         // Haptic Feedback for mobile 
         if (navigator.vibrate) {
             console.log('Playing haptic feedback...')
-            navigator.vibrate(200);
+            navigator.vibrate(20);
         }
     });
 });
