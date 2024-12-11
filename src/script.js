@@ -34,6 +34,7 @@ const numberOperationSounds = [
 ]
 
 const resultSounds = [
+    'sounds/result/among_us_trap.mp3',
     'sounds/result/Biden-SODA.mp3',
     'sounds/result/clash-royale-hog-rider.mp3',
     'sounds/result/deg-deg_4M6Cojn.mp3',
