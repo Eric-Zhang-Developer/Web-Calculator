@@ -254,6 +254,12 @@ allButtons.forEach(button => {
     button.addEventListener('click', function(){
         resultElement.innerText = calculationArray.join(" ");
         console.log('Calculation Array: ' + calculationArray.join(" "));
+
+        // Haptic Feedback for mobile 
+        if (navigator.vibrate) {
+            console.log('Playing haptic feedback...')
+            navigator.vibrate(200);
+        }
     });
 });
 
