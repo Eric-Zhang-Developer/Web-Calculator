@@ -136,7 +136,6 @@ specialButtons.forEach(button => {
 
 
 // Here is where the math happens 
-// To do: There is a major error in my code in which it is string - operation - string math
 function calculateResult(inputArray){
     // This code will follow order of operations, we will first loop and look for and calculate * and /
     // Then look for + and -, calculate
