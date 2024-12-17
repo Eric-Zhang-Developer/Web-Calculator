@@ -22,6 +22,7 @@ const errorSounds = [
 const numberOperationSounds = [
     'sounds/number-operation/bonk.mp3',
     'sounds/number-operation/discord-notification.mp3',
+    'sounds/number-operation/dry-fart.mp3',
     'sounds/number-operation/he-he-he-ha.mp3',
     'sounds/number-operation/hitmarker.mp3',
     'sounds/number-operation/metal-pipe-clang.mp3',
@@ -30,7 +31,7 @@ const numberOperationSounds = [
     'sounds/number-operation/roblox-death-sound_1.mp3',
     'sounds/number-operation/taco-bell-bong.mp3',
     'sounds/number-operation/vine-boom.mp3',
-    'sounds/number-operation/voice_sans.mp3',
+    'sounds/number-operation/voice_sans.mp3'
 ]
 
 const resultSounds = [
